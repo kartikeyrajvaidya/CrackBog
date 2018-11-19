@@ -1,0 +1,28 @@
+<div class="input-group" style="padding:100px;">
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" placeholder="Enter Product Name..." [(ngModel)]="search" name="search">
+  <div class="input-group-append">
+    <button class="btn btn-success" type="button" (click)="getProductId(search); showTable=false;">Search</button>
+  </div>
+</div>
+<div style="padding-left:100px; padding-right:100px;">
+  <table [hidden]="showTable" class="table table-reflow" >
+  <thead>
+    <tr>
+      <th>ProductName</th>
+      <th>Seller</th>
+      <th>Item Price</th>
+      <th>In_Stock</th>
+      <th>BUY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of finalData">
+      <td>{{item.Product_Name}}</td>
+      <td>{{item.Seller_Name}}</td>
+      <td>{{item.Best_Price}}</td>
+      <td>{{item.In_Stock}}</td>
+      <td><a class="waves-effect waves-light btn-large" href={{item.Uri}} target="_blank">Buy</a></td>
+    </tr>   
+  </tbody>
+</table>
+</div>
